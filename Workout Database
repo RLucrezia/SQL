@@ -1,0 +1,21 @@
+-- With this code I created a "workout" table, containing a primary key, type of workout, number of reps, and number of calories burnt for each workout.
+-- I inserted some values into the table, I then updated some of the records to change the number of reps and calories. 
+-- Finally I deleted the records corresponding to the "push ups" workout and selected all records from the table to make sure I got the result I wanteed.
+CREATE TABLE workout (id INTEGER PRIMARY KEY AUTOINCREMENT, type TEXT, reps INTEGER, calories INTEGER);
+
+/* CALORIES ARE MADE UP*/
+INSERT INTO workout (type, reps, calories) VALUES ("push ups", 10, 500);
+INSERT INTO workout (type, reps, calories) VALUES ("bench press", 25, 1500);
+INSERT INTO workout (type, reps, calories) VALUES ("pull ups", 10, 430);
+INSERT INTO workout (type, reps, calories) VALUES ("bicep curls", 25, 500);
+INSERT INTO workout (type, reps, calories) VALUES ("chest press", 10, 300);
+INSERT INTO workout (type, reps, calories) VALUES ("shoulder press", 5, 250);
+
+UPDATE workout SET reps = 15 WHERE type = "pull ups";
+SELECT * FROM workout;
+UPDATE workout SET calories = 470 WHERE type = "pull ups";
+SELECT * FROM workout;
+
+DELETE FROM workout WHERE type = "push ups";
+
+SELECT * FROM workout;
