@@ -1,0 +1,26 @@
+-- With this code I created a "bookshop" table, containing a unique identifier for each of the books, the title, price, quantity stocked, 
+-- and aisle in which the book can be found. I then ordered the books by increasing price, took stock by selecting the total quantity of books, 
+-- and identified the highest priced book. 
+
+CREATE TABLE bookshop (id INTEGER PRIMARY KEY, name TEXT, price INTEGER, quantity INTEGER, aisle INTEGER);
+
+INSERT INTO bookshop VALUES (1, "1984", 15, 3, 4);
+INSERT INTO bookshop VALUES (2, "A brave new world", 10, 2, 4);
+INSERT INTO bookshop VALUES (3, "Lord of the flies", 12, 4, 4);
+INSERT INTO bookshop VALUES (4, "Young Werther", 14, 1, 2);
+INSERT INTO bookshop VALUES (5, "Woyzieck", 3, 1, 2);
+INSERT INTO bookshop VALUES (6, "Hyperion", 5, 1, 2);
+INSERT INTO bookshop VALUES (7, "Before the coffee gets cold", 4, 10, 1);
+INSERT INTO bookshop VALUES (8, "No longer human", 2, 12, 1);
+INSERT INTO bookshop VALUES (9, "Norwegian Wood", 3, 15, 1);
+INSERT INTO bookshop VALUES (10, "Kafka on the shore", 2, 15, 1);
+INSERT INTO bookshop VALUES (11, "The Process", 2, 7, 2);
+INSERT INTO bookshop VALUES (12, "Il nome della rosa", 1, 9, 3);
+INSERT INTO bookshop VALUES (13, "La divina commedia", 1, 15, 3);
+INSERT INTO bookshop VALUES (14, "Decameron", 1, 10, 3);
+INSERT INTO bookshop VALUES (15, "Rossa come il sangue", 2, 17, 3);
+
+SELECT id, name, price FROM bookshop ORDER BY price;
+
+SELECT SUM(quantity) FROM bookshop;
+SELECT MAX(price) FROM bookshop;
