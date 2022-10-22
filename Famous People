@@ -1,0 +1,49 @@
+-- With this code I created three separate tables, "people", "activities" and "married".
+-- I then joined the tables based on the relationships between them. 
+-- The final SELECT statements allowed me to see the final tables with only the information I needed.
+
+/* Create table about the people and what they do here */
+CREATE TABLE people (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, age INTEGER);
+
+/* AGES ARE INVENTED */
+
+INSERT INTO people (name, age) VALUES ("Zendaya", 26);
+INSERT INTO people (name, age) VALUES ("Tom Holland", 25);
+INSERT INTO people (name, age) VALUES ("Robert Downey Jr.", 43);
+INSERT INTO people (name, age) VALUES ("Benedict Cumberbatch", 45);
+INSERT INTO people (name, age) VALUES ("Britney Spears", 46);
+INSERT INTO people (name, age) VALUES ("Tyler Joseph", 30);
+INSERT INTO people (name, age) VALUES ("Josh Dun", 30);
+INSERT INTO people (name, age) VALUES ("Debbie Ryan", 30);
+INSERT INTO people (name, age) VALUES ("Bill Gates", 70);
+INSERT INTO people (name, age) VALUES ("Ryan Reynolds", 45);
+INSERT INTO people (name, age) VALUES ("Blake Lively", 30);
+
+CREATE TABLE activities (name TEXT, person_id INTEGER);
+
+INSERT INTO activities (name, person_id) VALUES ("actor", 1);
+INSERT INTO activities (name, person_id) VALUES ("actor", 2);
+INSERT INTO activities (name, person_id) VALUES ("actor", 3);
+INSERT INTO activities (name, person_id) VALUES ("actor", 4);
+INSERT INTO activities (name, person_id) VALUES ("singer", 5);
+INSERT INTO activities (name, person_id) VALUES ("singer", 6);
+INSERT INTO activities (name, person_id) VALUES ("drummer", 7);
+INSERT INTO activities (name, person_id) VALUES ("actor", 8);
+INSERT INTO activities (name, person_id) VALUES ("entrepreneur", 9);
+INSERT INTO activities (name, person_id) VALUES ("actor", 10);
+INSERT INTO activities (name, person_id) VALUES ("actor", 11);
+
+SELECT people.name, activities.name as activity FROM people
+LEFT OUTER JOIN activities
+ON people.id = activities.person_id;
+
+CREATE TABLE married (person1_id INTEGER, person2_id INTEGER);
+
+INSERT INTO married VALUES (7, 8);
+INSERT INTO married VALUES (10, 11);
+
+SELECT p1.name, p2.name FROM married
+JOIN people p1
+ON p1.id = married.person1_id
+JOIN people p2
+ON p2.id = married.person2_id;
